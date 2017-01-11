@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -9,9 +10,23 @@
         android:id="@+id/news_title"
         android:layout_height="wrap_content" />
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:id="@+id/news_date"
-        android:layout_height="wrap_content" />
+        android:orientation="horizontal"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:layout_width="wrap_content"
+            tools:text="2017-01-10 23:12:31"
+            android:id="@+id/news_date"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/section_name"
+            android:layout_marginLeft="30dp"
+            tools:text="US news"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 </LinearLayout>
