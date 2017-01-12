@@ -36,10 +36,21 @@ public class NewsAdapter extends ArrayAdapter<News> {
         TextView titleView = (TextView) listItemView.findViewById(R.id.news_title);
         titleView.setText(currentNews.getTitle());
         TextView dateView = (TextView) listItemView.findViewById(R.id.news_date);
-        dateView.setText(currentNews.getDate());
+        String formatDate = getFormattedDate(currentNews.getDate());
+        dateView.setText(formatDate);
         TextView sectionView = (TextView) listItemView.findViewById(R.id.section_name);
         sectionView.setText(currentNews.getSection());
 
         return listItemView;
+    }
+
+    public String getFormattedDate(String date) {
+        int baseLength = date.length();
+        String formatDate = date.substring(0, baseLength - 4);
+        if (formatDate.contains("T")) {
+            return formatDate.replace("T", "   ");
+        } else {
+            return formatDate;
+        }
     }
 }

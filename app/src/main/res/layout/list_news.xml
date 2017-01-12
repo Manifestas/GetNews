@@ -3,10 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+              android:padding="16dp"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
+        tools:text="Senate Approves First Step Toward Repealing Obamacare in Late-Night Session"
+        android:textStyle="bold"
+        android:textSize="16sp"
         android:id="@+id/news_title"
         android:layout_height="wrap_content" />
 

@@ -1,9 +1,13 @@
 package com.example.manifest.getnews;
 
 import android.app.LoaderManager;
+import android.content.Intent;
 import android.content.Loader;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -26,6 +30,15 @@ public class NewsActivity extends AppCompatActivity
         //create a new adapter that takes an empty list of news as input
         mAdapter = new NewsAdapter(this, new ArrayList<News>());
         newsListView.setAdapter(mAdapter);
+        newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                News currentNews = mAdapter.getItem(i);
+                Uri newsUri = Uri.parse(currentNews.getURL());
+                Intent webIntent = new Intent(Intent.ACTION_VIEW, newsUri);
+                startActivity(webIntent);
+            }
+        });
 
         //get a reference to the LoaderManager, in order to interact with loaders.
         LoaderManager loaderManager = getLoaderManager();
